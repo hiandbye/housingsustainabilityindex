@@ -1,8 +1,19 @@
-module.exports = function(app) {
+module.exports = function(app, firebase) {
     
+    var locations;
+
+    var db = firebase.database();
+    var ref = db.ref("locations");
+
+    ref.on("value", function(snapshot) {
+        locations = JSON.stringify(snapshot.val());
+    }, function(errorObject) {
+        console.log("The read failed: " + errorObject.code);
+    });
+
     // Index
     app.get('/', function(req, res) {
-        res.render('home');
+        res.render('home', {locationsData: locations});
     });
 
     // Custom 404 page

@@ -1,5 +1,12 @@
-$primary: #ff9900;
-
-body {
-    background: $primary;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
+
+#map {
+    height: 800px;
+    width: 800px;
+    margin: 0 auto;
+}
+    

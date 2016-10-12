@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "sustainable-housing-index",
+  "private_key_id": "0f0c1f0ba61f4236fbec3309dd7da7379a76727f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDqcp/0LDWcI4eS\nGOaUjplRPZo/IGQms3MJ/+n+3hlkuk/yaH4nOSVAbwIXjbOsU0FzvUgVGUASAm0K\nIJDdAtStWryxetkAVdSuYVcveeXcRyecSYFoWHv91/RrfMGNjGls4bF2zZ1GWq3B\nZATvfUUpeL8zF6fHs8Z7OHUfcfHk1rSbzmSKvtfBU9YEcE8YfBVmOYYwoNXfXwMp\nr0BzuOWJB4n03kSzC6pjW9VqCxrHcGZ9gl4B0FQre97e2UrTpoFeQMT8k6E8vqj4\nfidW8Z6MEKLh+Yxrvp7sW5k0gSbB/uJDrGHIOO6YlHEuLULhntGot/m9BaDgi7VM\nehTadm9HAgMBAAECggEAYxIZAaeE5/wjl9sp5PD1XN05Rx+68pe2Ly2Thf34oRYS\nHo+Fb7G4SigerDFXEaUE7ZG42iGXb4TS6wqj7KD7ml3TivQsqvWaMC42F3vdZF41\nINf29U8e5j/Rq3JGoDgLfNVKlreAlHBRKH3JkCJRjZrWwRJn9f3EC+HprGYMH/TD\nrLYYDir24DAglmRyZLi4HaCbQPf2F5400JKMo6bLcHp3ic6DBc0nuNmHsdwjV7BO\nGUVNhbjSmQbNVD+AMobhPHwXAiPCKTXyUo96BUJ+aLtsj1D3uppklby39cbm115J\nv3wFm6liOLkKk6q3ODdEm009EuUQ9+hHzefJRNP3UQKBgQD8Y0PqHa0QffjPP3te\nkm+PvTPu46Bph+euc9cMNPjoPcNC4t34Qqq48s390VTKYiP3fhk0ZzrkedIATaB2\ncQE/kmd+DIyXxO85tWfKMPa9gJIOuxnjysIkmI60jseIg6OaGqi+feQYPAHlG7nA\nzwmGJQQppRTgaTmOt9tLZ8c0IwKBgQDtzaDcHOpjyc7KJKiKddyhjhjUISMwWk98\nW//6gYhxLpfS2o5QWwFULsgS1kJr8a3r56jYc5u82EWDuioqKxRx0Js356n3gedT\nOty2sj3rM6t99a6emA43EVMncGX+BrKugrNRIjjnRuSjp+msdNdTXdKJOoxYl8Yb\nzOtVd/XojQKBgHMKC/q6bBgIU1Cj7ue8d31dED7jIkr313J8+phlzM6O2GG0Ztiy\nCn8irSH0OGHHOf2lTHfGVeGuZToeJ/XUrGz9no6lya+j5Ca5uQVALDdUUz7DqZla\n4gMsRl+mdOyUlA25+RBa8YzaTULQ0GpB9GVgmfUhedKQI9wZkatdMj9hAoGBAMGV\n/tiRNYIsnAnVE9s7nXNrAO1XWJUZP9HF9zmPz2oL+w5sWyQxIYDNYJRtFb9YDDSZ\n7sreOi7ehKB6oa6YSVlp76HwFl5lwtHvfhPAQEXDV1z/7rouoIvVr7LQfkbwXu9P\nePiYemhUPva3T7PTniLAow6RugS48U5aYE3AjVBVAoGBANTz7cb0Ba3C6WpppZwB\n4VcHXqWZMfLYTtiwlTAIcqHpcCfmnqhWsaUQ4bCKKd2r2GE/P6WguvTzcZ6R8L+S\nGU4mhVVzzTf/bPqCyGYwYLHt1z/aoBZu1jB4OhZs85/uWBuP3czKHjoi+cXb3S/V\noNtRQuT+M2EdsRiMRVk/n+2k\n-----END PRIVATE KEY-----\n",
+  "client_email": "hsi-532@sustainable-housing-index.iam.gserviceaccount.com",
+  "client_id": "113250912309772607871",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/hsi-532%40sustainable-housing-index.iam.gserviceaccount.com"
+}
