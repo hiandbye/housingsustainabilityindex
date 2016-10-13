@@ -1,10 +1,13 @@
 module.exports = function(app, firebase) {
     
+    //  Init locations variable for use in googlemap.js -> scripts.min.js
     var locations;
 
+    // Establish database of locations data
     var db = firebase.database();
     var ref = db.ref("locations");
 
+    // Register callback
     ref.on("value", function(snapshot) {
         locations = JSON.stringify(snapshot.val());
     }, function(errorObject) {
@@ -16,13 +19,13 @@ module.exports = function(app, firebase) {
         res.render('home', {locationsData: locations});
     });
 
-    // Custom 404 page
+    // 404 page
     app.use(function(req, res) {
         res.status(404);
         res.render('404');
     });
 
-    // Custom 500 page
+    // 500 page
     app.use(function(err, req, res, next) {
         console.error(err.stack);
         res.status(500);
