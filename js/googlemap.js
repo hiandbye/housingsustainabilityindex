@@ -1,3 +1,11 @@
+// Credit to user Ducan - http://stackoverflow.com/questions/9475830/google-maps-api-v3-markers-all-share-the-same-infowindow
+function bindInfoWindow(marker, map, infowindow, html) {
+    marker.addListener('click', function() {
+        infowindow.setContent(html);
+        infowindow.open(map, this);
+    });
+}
+
 function initMap() {
     var contentString1 = '<div id="content">'+
         '<div id="siteNotice">'+
@@ -31,20 +39,36 @@ function initMap() {
 
     var infowindow = new google.maps.InfoWindow();
 
-    var marker, i;
-    for (i = 0; i < houses.length; i++) {
-    marker = new google.maps.Marker({
-        position: new google.maps.LatLng(houses[i][1], houses[i][2]),
-        map: map,
-        title: houses[i][0]
-    });
+    var marker, i, contentString;
 
-    google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-        infowindow.setContent(houses[i][3]);
-        infowindow.open(map, marker);
-        }
-    })(marker, i));
+    for (i = 0; i < Object.keys(locations).length; i++) {
+        var key = Object.keys(locations)[i];
+        var currentHouse = locations[key];
+        console.log(key);
+
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(currentHouse["lat"], currentHouse["lng"]),
+            map: map,
+            title: currentHouse["address"]
+        });
+
+        contentString =    '<div id="content">'+
+                                    '<div id="siteNotice">'+
+                                    '</div>'+
+                                    '<h1 id="firstHeading" class="firstHeading">' + currentHouse["address"] + '</h1>'+
+                                    '<div id="bodyContent">'+
+                                        '<p> Rent: ' + currentHouse["rent"] +
+                                        '</p>' +
+                                    '</div>'+
+                                '</div>';
+
+        /*google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+            infowindow.setContent(contentString);
+            infowindow.open(map, marker);
+            }
+        })(marker, i));*/
+        bindInfoWindow(marker, map, infowindow, contentString);
     }
 
 }
