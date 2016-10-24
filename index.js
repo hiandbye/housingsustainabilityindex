@@ -9,9 +9,12 @@ firebase.initializeApp({
 });
 
 
-// Init Express
+// Init Express & Helmet
 var express = require('express');
+var helmet = require('helmet');
 var app = express();
+
+app.use(helmet());
 
 // Set templating to use Handlebars
 var handlebars = require('express-handlebars').create({ 
