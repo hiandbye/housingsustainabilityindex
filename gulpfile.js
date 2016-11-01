@@ -13,7 +13,7 @@ gulp.task('scripts', function() {
 });
 
 // Runs jshint on all js files
-gulp.task('lint-js', function() {
+gulp.task('check-scripts', function() {
     return gulp.src('./js/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))

@@ -17,13 +17,65 @@ function bindInfoWindow(marker, map, infowindow, html) {
     });
 }
 
+/*
+Function:   buildContentString
+Parameters: currentHouse - Object of current house
+Return:     contentString - string to be placed in infowindow
+Purpose:    It creates the html (in a string) that is to be placed in the infowindow 
+            for the current marker. Some logic is applied for items such as dollar amounts.
+*/
+function buildContentString(currentHouse) {
+    var contentString = '<div id="content">'+
+                            '<div id="siteNotice">'+
+                                '</div>'+
+                                '<h3 id="firstHeading" class="firstHeading">' + currentHouse["address"] + '</h3>'+
+                                '<div id="bodyContent">';
+    // Rent
+    if(currentHouse["rent"] == "N/A") {
+        contentString += '<p>Rent: N/A </p>';
+    } else {
+        contentString += '<p>Rent: $' + currentHouse["rent"] + '</p>';
+    }
+
+    // Electric
+    if(currentHouse["eBill"] == "N/A") {
+        contentString += '<p>Electric Bill: N/A </p>';
+    } else {
+        contentString += '<p>Electric Bill: $' + currentHouse["eBill"] + '</p>';
+    }
+
+    // Gas
+    if(currentHouse["gBill"] == "N/A") {
+        contentString += '<p>Gas Bill: N/A </p>';
+    } else {
+        contentString += '<p>Gas Bill: $' + currentHouse["gBill"] + '</p>';
+    }
+
+    // Recycle
+    contentString += '<p>Recycle: ' + currentHouse["recycle"] + '</p>';
+
+    // Compost
+    contentString += '<p>Compost: ' + currentHouse["compost"] + '</p>';
+
+    // Bus
+    contentString += '<p>Bus Line: ' + currentHouse["busline"] + '</p>';
+
+    // Bike 
+    contentString += '<p>Bike Lane: ' + currentHouse["bikelane"] + '</p>';
+
+    // End divs
+    contentString += '</div></div>';
+    
+    return contentString;
+}
+
 
 /*
 Function:   initMap 
 Parameters: N/A 
 Return:     N/A
-Purpose:    Main initialize function for google maps api
-            Creates map and populates it will markers whose data
+Purpose:    Main initialize function for Google Maps API
+            Creates map and populates it with markers whose data
             comes from a Firebase database
 */
 function initMap() {
@@ -50,15 +102,7 @@ function initMap() {
             title: currentHouse["address"]
         });
 
-        contentString =    '<div id="content">'+
-                                    '<div id="siteNotice">'+
-                                    '</div>'+
-                                    '<h1 id="firstHeading" class="firstHeading">' + currentHouse["address"] + '</h1>'+
-                                    '<div id="bodyContent">'+
-                                        '<p> Rent: ' + currentHouse["rent"] +
-                                        '</p>' +
-                                    '</div>'+
-                                '</div>';
+        contentString = buildContentString(currentHouse);
 
         bindInfoWindow(marker, map, infowindow, contentString);
     }
