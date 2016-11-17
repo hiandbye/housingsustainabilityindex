@@ -1,0 +1,7 @@
+Walk Scores
+Automate Lat/Lng data
+    Python script?
+Automate Walk Scores
+    Ajax call?
+Deploy as Beta Application
+    Thinking Heroku might be the easiest solution, also has a free plan

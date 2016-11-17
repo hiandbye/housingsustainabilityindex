@@ -8,4 +8,4 @@ About:
     published by O'Reilly Media, Inc. Second Revision of First Edition 2015.
     ISBN: 978-1-491-94930-6
 
-    Primary Developer: Ryan Hachtel, hachter@wwu.edu
+    Primary Developer: Ryan Hachtel, OSWebmaster@wwu.edu
