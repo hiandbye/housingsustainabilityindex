@@ -9,4 +9,31 @@ html, body {
     width: 90%;
     margin: 0 auto;
 }
+
+//Walkscore Branding CSS - https://www.walkscore.com/professional/branding-requirements.php
+/* styles for displaying scores from the Walk Score API */
+.walkscore-scoretext, .walkscore-noscoretext {
+    position: relative;
+    top: -2px;
+    color: #1e7ebe;
+    margin-left: 3px;
+    text-decoration: underline;
+    font-weight: normal;
+}
+.walkscore-scoretext {
+    margin-left: 7px;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration:none;
+}
+#walkscore-div a {
+    text-decoration:none;
+}
+
+/* styles for the info icon */
+#ws_info {
+    position: relative;
+    top: -5px;
+    margin-left: 4px;
+}
     
