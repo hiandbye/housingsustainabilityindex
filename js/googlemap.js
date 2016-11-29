@@ -1,56 +1,4 @@
-/*
-The immediate following section of code is from view-source:https://www.walkscore.com/professional/api-sample-code.php
-Done as to follow their guidelines for branding.
-*/
 
-//Make an ajax call to a php page on your domain that will fetch json data from the Walk Score API
-//here we use the JQuery library for our Ajax call, but you can use whatever system you like
-function injectWalkScore(address,lat,lon){
-    address = encodeURIComponent(address);
-    var url="http://api.walkscore.com/score?format=json&address=" + address + "&lat=" + lat + "&lon=" + lon + "&wsapikey=8f13071ee40f00639634c4859f8cda96";
-    $.ajax( {
-        url: url,
-        dataType: 'json',
-        type:'GET',
-        //async: false,
-        success: function(data) { displayWalkScore(data); },
-        error: function(){ displayWalkScore(""); }
-        }
-    );
-}
-//to demonstrate all of our formatting options, we'll pass the json on to a series of display functions.
-//in practice, you'll only need one of these, and the ajax call could call it directly as it's onSuccess callback
-function displayWalkScores(jsonStr) {
-    displayWalkScore(jsonStr);
-}
-
-//show the walk score -- inserts walkscore html into the page.  Also needs CSS from top of file
-function displayWalkScore(jsonStr) {
-    var json=(jsonStr) ? eval('(' + jsonStr + ')') : ""; //if no response, bypass the eval
-
-    //if we got a score
-    if (json && json.status == 1) {
-        var htmlStr = '<a target="_blank" href="' + json.help_link + '"><img src="' + json.logo_url + '" /><span class="walkscore-scoretext">' + json.walkscore + '</span></a>';
-    }
-    //if no score was available
-    else if (json && json.status == 2) {
-        var htmlStr = '<a target="_blank" href="' + json.help_link + '"><img src="' + json.logo_url + '" /></a> <a href="' + json.ws_link + '"><span class="walkscore-noscoretext">Get Score</span></a>';
-    }
-    //if didn't even get a json response
-    else {
-        var htmlStr = '<a target="_blank" href="https://www.walkscore.com"><img src="//cdn2.walk.sc/2/images/api-logo.png" /> <span class="walkscore-noscoretext">Get Score</span></a> ';
-    }
-    var infoIconHtml = '<span id="ws_info"><a href="https://www.redfin.com/how-walk-score-works" target="_blank"><img src="//cdn2.walk.sc/2/images/api-more-info.gif" width="13" height="13"" /></a></span>';
-
-    //if you want to wrap extra tags around the html, can do that here before inserting into page element
-    htmlStr = '<p>' + htmlStr + infoIconHtml + '</p>';
-
-    //insert our new content into the container div:
-	$("#walkscore-div").html(htmlStr);
-}
-
-
-// End of Walkscore code //
 
 /*
 Function:   bindInfoWindow
@@ -64,10 +12,9 @@ Purpose:    Binds an infowindow with the inputed markup to a
             to open said infowindow
 Credit to user Ducan - http://stackoverflow.com/questions/9475830/google-maps-api-v3-markers-all-share-the-same-infowindow
 */
-function bindInfoWindow(marker, map, infowindow, html, address, lat, lng) {
+function bindInfoWindow(marker, map, infowindow, html) {
     marker.addListener('click', function() {
         infowindow.setContent(html);
-        injectWalkScore(address, lat, lng);
         infowindow.open(map, this);
     });
 }
@@ -119,9 +66,7 @@ function buildContentString(currentHouse) {
     contentString += '<p>Bike Lane: ' + currentHouse["bikelane"] + '</p>';
 
     //Walkscore
-    //var innerHtml = injectWalkScore(currentHouse["address"], currentHouse["lat"], currentHouse["lng"]);
-    //contentString += '<div id=\"walkscore-div\">' + innerHtml + '</div>'; 
-    contentString += '<div id=\"walkscore-div\"></div>'; 
+    contentString += '<a target="_blank" href="https://www.walkscore.com"><img src="//cdn2.walk.sc/2/images/api-logo.png" /> <span class="walkscore-scoretext">' + currentHouse["walkScore"] + '</span></a><span id="ws_info"><a href="https://www.redfin.com/how-walk-score-works" target="_blank"><img src="//cdn2.walk.sc/2/images/api-more-info.gif" width="13" height="13"" /></a></span>'; 
 
     // End divs
     contentString += '</div></div>';
@@ -164,7 +109,7 @@ function initMap() {
 
         contentString = buildContentString(currentHouse);
 
-        bindInfoWindow(marker, map, infowindow, contentString, currentHouse["address"], currentHouse["lat"], currentHouse["lng"]);
+        bindInfoWindow(marker, map, infowindow, contentString);
     }
 
 }

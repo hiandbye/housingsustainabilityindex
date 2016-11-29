@@ -13,19 +13,23 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="navbar-right">
+        <img src="{{static '/img/westernlogo_white.png'}}" id="logo">
+      </div>
     </div><!--/.nav-collapse -->
   </div>
 </nav><!-- /.navbar -->
 <script>
   var locations = {{{ locationsData }}}
 </script>
-<div class="container">
-    <div class="center-block">
-        <div id="map"></div>
-    </div>
+<div class="map-container">
+    <div id="map"></div>
 </div><!--/Map section -->
+<div class="container">
+  <h3>Instructions:</h3>
+  <p>Click on the pin icons for information about the residence at that location.</p>
+</div>
 
 <script src="{{static '/js/scripts.min.js'}}"></script>
 <script async defer

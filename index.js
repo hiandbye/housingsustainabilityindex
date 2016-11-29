@@ -15,8 +15,14 @@ var helmet = require('helmet');
 var cors = require('cors');
 var app = express();
 
-app.use(helmet());
 app.use(cors());
+app.use(helmet());
+
+app.use(function(req, res, next) {
+    req.header("Access-Control-Allow-Origin", "http://localhost");
+    req.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+})
 
 // Set templating to use Handlebars
 var handlebars = require('express-handlebars').create({ 
