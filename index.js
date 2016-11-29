@@ -9,12 +9,14 @@ firebase.initializeApp({
 });
 
 
-// Init Express & Helmet
+// Init Others
 var express = require('express');
 var helmet = require('helmet');
+var cors = require('cors');
 var app = express();
 
 app.use(helmet());
+app.use(cors());
 
 // Set templating to use Handlebars
 var handlebars = require('express-handlebars').create({ 
@@ -38,6 +40,7 @@ app.set('port', process.env.PORT || 3000);
 
 // Static Resources
 app.use(express.static(__dirname + '/public'));
+
     
 // **** END SETUP **** //
 
