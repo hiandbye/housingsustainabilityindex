@@ -16,9 +16,12 @@ module.exports = function(app, firebase) {
 
     // Index
     app.get('/', function(req, res) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.render('home', {locationsData: locations});
+    });
+
+    // About
+    app.get('/about', function(req, res) {
+        res.render('about');
     });
 
     // 404 page
